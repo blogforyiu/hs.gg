@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HS.GG - 헌트 쇼다운 전적 검색</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 상단 네비게이션 헤더 -->
+  <header class="header">
+    <div class="logo">HS<span>.GG</span></div>
+    <div class="nav-links">
+      <a href="index.html" class="active">전적검색</a>
+      <a href="#ranking">랭킹</a>
+      <a href="#weapons">무기 통계</a>
+    </div>
+  </header>
+
+  <!-- 메인 검색 섹션 -->
+  <main class="main-container">
+    <div class="hero-section">
+      <h1 class="main-title">HUNT: SHOWDOWN STATS</h1>
+      <p class="sub-title">스팀 닉네임 또는 계정 ID를 입력하여 바유(Bayou)에서의 전적과 MMR을 확인하세요.</p>
+      
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="헌터 닉네임 입력 (예: Jena)..." onkeypress="if(event.key === 'Enter') searchPlayer()">
+        <button onclick="searchPlayer()">전적 검색</button>
+      </div>
+    </div>
+
+    <!-- 검색 결과 영역 -->
+    <div class="result-section" id="resultSection" style="display: none;">
+      <!-- 프로필 카드 -->
+      <div class="profile-card">
+        <img id="profileImg" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=300&q=80" alt="Avatar" class="avatar">
+        <div class="profile-info">
+          <h2 id="profileName">헌터명</h2>
+          <div class="mmr-badge" id="profileMmr">MMR ⭐️⭐️⭐️⭐️⭐️⭐️ (6스타)</div>
+          <p class="profile-update">최근 업데이트: 방금 전</p>
+        </div>
+      </div>
+
+      <!-- 주요 스탯 그리드 -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">K / D 비율</div>
+          <div class="stat-value" id="statKd">2.45</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">총 킬 / 데스</div>
+          <div class="stat-value" id="statKills">1,420 / 580</div>
+        </div>
+        <div class="stat-label-card stat-card">
+          <div class="stat-label">현상금 탈취 성공률</div>
+          <div class="stat-value" id="statBounty">68.4%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">플레이 시간</div>
+          <div class="stat-value" id="statHours">840시간</div>
+        </div>
+      </div>
+
+      <!-- 최근 매치 전적 -->
+      <div class="matches-box">
+        <h3>최근 바유(Bayou) 전투 기록</h3>
+        <div id="matchList">
+          <!-- 자바스크립트로 동적 생성 -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
